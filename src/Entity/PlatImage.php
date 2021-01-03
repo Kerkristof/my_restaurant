@@ -23,6 +23,11 @@ class PlatImage
      */
     private $plat;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $short_name;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -36,6 +41,18 @@ class PlatImage
     public function setPlat(?Plat $plat): self
     {
         $this->plat = $plat;
+
+        return $this;
+    }
+
+    public function getShortName(): ?string
+    {
+        return $this->short_name;
+    }
+
+    public function setShortName(string $short_name): self
+    {
+        $this->short_name = $short_name;
 
         return $this;
     }
