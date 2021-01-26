@@ -3,29 +3,26 @@
 {% block title %}Hello PlatController!{% endblock %}
 
 {% block body %}
-<h1>Liste des plats</h1>
 <div class="row">
   {% for plat in plats %}
   <div class="card col-3">
     <div class="card-header">
-      <h3 class="card-title">{{plat.name}}</h3>
+      <h5 class="card-title">{{plat.name}}</h5>
     </div>
     <div class="card-body">
+      {% for image in plat.platImages %}
+        <img class="card-img" src="{{asset('assets/images/plat_images/' ~ image.imageName)}}" alt="">
+        {{ include('plat/_delete_image_btn.html.twig')}}
+      {% endfor %}
       <p class="card-text">{{plat.content}}</p>
-      <ul>
-        {% for elem in plat.platImages %}
-          <li>{{elem.shortName}} <a class="btn btn-info" href="{{path('plat_delete_image', {'id' : elem.Id})}}">X</a> </li>
-        {% endfor %}
-      </ul>
-      <a href="{{path('plat_add_image', {'id' : plat.Id })}}"><small>ajouter une image</small></a>
+      {{ include('plat/_add_image_btn.html.twig')}}
     </div>
     <div class="card-footer">
-      <a href="{{path('plat_update', {'id' : plat.Id })}}" class="btn btn-primary">Modifier</a>
-      <a href="{{path('plat_delete', {'id' : plat.Id })}}" class="btn btn-warning">Supprimer</a>
+      {{ include('plat/_update_plat_btn.html.twig')}}
+      {{ include('plat/_delete_plat_btn.html.twig')}}
     </div>
   </div>
   {% endfor %}
 </div>
-
-<a href="{{path('plat_new')}}" class="btn btn-success">Ajout d'un nouveau plat</a>
+{{include('plat/_create_plat_btn.html.twig')}}
 {% endblock %}

@@ -1,0 +1,6 @@
+{% if is_granted('ROLE_ADMIN') %}
+  <form action="{{ path('plat_add_image', {'id' : plat.id})}}" method="post">
+    <input type="hidden" name="_method" value="POST">
+    <button class="btn"><i>Ajouter une image</i></button>
+  </form>
+{% endif %}

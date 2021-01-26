@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="login-container">
+  <div class="row">
+    <div class="col-2">
+      <img src="{{asset("assets/images/icones/icon.jpg")}}" width="80%" alt="forks">
+    </div>
+    <div class="col-10">
+      <h3>Création votre compte abonné</h3>
+    </div>
+  </div>
+  <hr>
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    {{ form_start(registrationForm) }}
+
+    <!-- Email field -->
+    <div class="form_end">
+      {{ form_label(registrationForm.email)}}
+      {{ form_widget(registrationForm.email)}}
+    </div>
+
+    <!-- Password field -->
+    <div class="form-field">
+      {{ form_widget(registrationForm.plainPassword)}}
+    </div>
+
+    <!-- Agree terms -->
+    <div class="form-field">
+      {{ form_row(registrationForm.agreeTerms)}}
+    </div>
+
+    <!-- Submit button -->
+    <div class="form-field">
+      <button type="submit" class="btn btn-dark">Valider</button>
+    </div>
+
+    {{ form_end(registrationForm) }}
+
+{% endblock %}

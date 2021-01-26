@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Page de contacts</h1>
+
+<div class="login-container">
+  <h3>Laissez nous votre message</h3>
+  <hr>
+  <form action="{{path('home_message')}}" method="post">
+    <div class="form-field">
+      <label for="subject">Objet du message</label>
+      <input class="form-control" type="text" name="subject" id="object">
+    </div>
+    <div class="form-field">
+      <label for="content">Contenu du mesage</label>
+      <textarea class="form-control" name="content" id="content"></textarea>
+    </div>
+
+    <input class="btn btn-dark form-field" type="submit" value="Envoyer">
+
+  </form>
+
+</div>
+
+{% endblock %}

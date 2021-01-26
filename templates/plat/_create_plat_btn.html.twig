@@ -1,0 +1,6 @@
+{% if is_granted('ROLE_ADMIN') %}
+  <form method="post" action="{{path('plat_new')}}">
+    <input type="hidden" name="_method" value="POST">
+    <button class="btn"><i>Ajouter un nouveau plat</i></button>
+  </form>
+{% endif %}

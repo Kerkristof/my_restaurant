@@ -3,7 +3,10 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<h1>Page d'acceuil</h1>
-<a href="{{path('plat_index')}}" class="btn btn-success">Les plats</a>
-</div>
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+{% endfor %}
+
+<img alt="" class="img-home" src="{{asset('assets/images/home_images/salle1.jpg')}}">
 {% endblock %}

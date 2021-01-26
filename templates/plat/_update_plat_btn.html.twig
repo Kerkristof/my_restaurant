@@ -1,0 +1,6 @@
+{% if is_granted('ROLE_ADMIN')%}
+  <form method="POST" action="{{ path('plat_update', {'id' : plat.id})}}"
+    <input type="hidden" name="_method" value="POST">
+    <button class="btn btn-warning"><i><small>Modifier</small></i></button>
+  </form>
+{% endif %}

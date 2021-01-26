@@ -2,10 +2,11 @@
 
 {% block body %}
 
-{{form_start(platImageForm)}}
+<div class="container">
+  {{form_start(platImageForm)}} <br>
+  {{form_row(platImageForm.imageFile)}} <br>
+  {{form_end(platImageForm)}}
+</div>
 
-<button type="submit" class="btn">Save</button>
-
-{{form_end(platImageForm)}}
 
 {% endblock %}
